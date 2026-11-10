@@ -1,0 +1,22 @@
+{
+  "name": "afanalytics",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "fetch": "node scripts/fetch-modrinth.js"
+  },
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RealNmS/AFAnalitics.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/RealNmS/AFAnalitics/issues"
+  },
+  "homepage": "https://github.com/RealNmS/AFAnalitics#readme"
+}

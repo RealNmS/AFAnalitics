@@ -15,13 +15,31 @@ async function curseForgeFetch(url, apiKey) {
     const response = await fetch(url, {
         headers: {
             "Accept": "application/json",
-            "x-api-key": apiKey
+            "x-api-key": apiKey,
+            "User-Agent": "RealNmS/AFAnalitics"
         }
     });
 
     if (!response.ok) {
+        let details = "";
+
+        try {
+            details = await response.text();
+        } catch {
+            details = "";
+        }
+
+        if (response.status === 401 || response.status === 403) {
+            throw new Error(
+                `CurseForge authentication rejected the API key (${response.status}). ` +
+                "Verify CURSEFORGE_API_KEY contains a valid " +
+                "CurseForge Core API key."
+            );
+        }
+
         throw new Error(
-            `CurseForge API request failed: ${response.status} ${response.statusText}`
+            `CurseForge API request failed: ${response.status} ${response.statusText}` +
+            (details ? ` - ${details}` : "")
         );
     }
 
@@ -29,7 +47,9 @@ async function curseForgeFetch(url, apiKey) {
 }
 
 async function fetchCurseForgeData() {
-    const apiKey = process.env.CURSEFORGE_API_KEY;
+    const apiKey = (
+        process.env.CURSEFORGE_API_KEY
+    ).trim().replace(/^(['"])(.*)\1$/, "$2");
 
     if (!apiKey) {
         throw new Error("CURSEFORGE_API_KEY is not configured");

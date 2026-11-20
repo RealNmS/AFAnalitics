@@ -22,10 +22,15 @@ jobs:
         with:
           node-version: 22
 
-      - name: Collect analytics
-        run: npm run fetch
+      - name: Collect Modrinth analytics
+        run: npm run fetch:modrinth
+
+      - name: Collect CurseForge analytics
+        run: npm run fetch:curseforge
+        continue-on-error: true
         env:
           CURSEFORGE_API_KEY: ${{ secrets.CURSEFORGE_API_KEY }}
+          CURSEFORGE_PROJECT_ID: ${{ secrets.CURSEFORGE_PROJECT_ID }}
 
       - name: Commit updated data
         run: |

@@ -24,6 +24,8 @@ jobs:
 
       - name: Collect analytics
         run: npm run fetch
+        env:
+          CURSEFORGE_API_KEY: ${{ secrets.CURSEFORGE_API_KEY }}
 
       - name: Commit updated data
         run: |

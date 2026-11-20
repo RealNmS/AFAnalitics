@@ -36,6 +36,11 @@
             </div>
 
             <div class="stat-card">
+                <span>CurseForge Downloads</span>
+                <strong id="curseforge-downloads">—</strong>
+            </div>
+
+            <div class="stat-card">
                 <span>Followers</span>
                 <strong id="followers">—</strong>
             </div>
@@ -44,6 +49,34 @@
 
         <section class="chart-section">
             <h2>Downloads Over Time</h2>
+
+            <div class="chart-controls" aria-label="Chart controls">
+                <div class="control-group">
+                    <span>Platform</span>
+                    <div class="segmented-control" id="platform-controls">
+                        <button type="button" class="active" data-platform="all">All</button>
+                        <button type="button" data-platform="modrinth">Modrinth</button>
+                        <button type="button" data-platform="curseforge">CurseForge</button>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label for="time-range">Time range</label>
+                    <select id="time-range">
+                        <option value="all">All time</option>
+                        <option value="30">Last 30 days</option>
+                        <option value="7">Last 7 days</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
+                    <span>View</span>
+                    <div class="segmented-control" id="metric-controls">
+                        <button type="button" class="active" data-metric="cumulative">All downloads</button>
+                        <button type="button" data-metric="daily">Downloads per day</button>
+                    </div>
+                </div>
+            </div>
 
             <canvas id="downloads-chart"></canvas>
         </section>

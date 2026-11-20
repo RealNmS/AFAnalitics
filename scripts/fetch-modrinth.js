@@ -74,7 +74,14 @@ async function main() {
 
     if (existingIndex !== -1) {
         console.log("Today's snapshot already exists. Updating it.");
-        history[existingIndex] = snapshot;
+        history[existingIndex] = {
+            ...history[existingIndex],
+            ...snapshot,
+            modrinth: {
+                ...history[existingIndex].modrinth,
+                ...snapshot.modrinth
+            }
+        };
     } else {
         console.log("Adding new daily snapshot.");
         history.push(snapshot);

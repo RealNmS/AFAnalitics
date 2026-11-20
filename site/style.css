@@ -73,3 +73,53 @@ main {
 
     border-radius: 15px;
 }
+
+.chart-controls {
+    display: flex;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.control-group {
+    display: grid;
+    gap: 8px;
+}
+
+.control-group > span,
+.control-group > label {
+    font-size: 0.85rem;
+    opacity: 0.7;
+}
+
+.segmented-control {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.segmented-control button,
+.control-group select {
+    min-height: 38px;
+    border: 1px solid #3a3a3a;
+    border-radius: 8px;
+    background: #242424;
+    color: #fff;
+    font: inherit;
+}
+
+.segmented-control button {
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.segmented-control button:hover,
+.segmented-control button.active {
+    border-color: #69a87b;
+    background: #315941;
+}
+
+.control-group select {
+    padding: 8px 36px 8px 12px;
+}

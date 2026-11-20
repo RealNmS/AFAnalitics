@@ -5,7 +5,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "fetch": "node scripts/fetch-modrinth.js"
+    "fetch": "node scripts/fetch-modrinth.js && node scripts/fetch-curseforge.js",
+    "fetch:modrinth": "node scripts/fetch-modrinth.js",
+    "fetch:curseforge": "node scripts/fetch-curseforge.js"
   },
   "main": "index.js",
   "repository": {
